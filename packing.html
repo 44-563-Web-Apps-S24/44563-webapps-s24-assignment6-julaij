@@ -22,8 +22,18 @@
         <input type="button" onclick="selectPack()" value="Select for packing">
     </form>
 
-
     <p id="result">This text will be replaced </p>
+
+
+    <form>
+        <label for="month">Enter travel month </label>
+        <input type="text" value="May" id="month" name="month"> <br>
+
+        <label for="price"> Enter price </label>
+        <input type="text" id="price" name="price" autofocus> <br>
+
+        <input type="button" onclick="updatePack()" value="Update the pack">
+    </form>
 
     <script>
 
@@ -35,6 +45,13 @@
             my_pack.light = document.getElementById("light").checked;
             my_pack.carry_on = document.getElementById("carry_on").checked;
             my_pack.tablet = document.getElementById("tablet").checked;
+            document.getElementById("result").innerHTML = JSON.stringify(my_pack);
+        }
+
+        function updatePack() {
+            var month = document.getElementById("month").value
+            var price = document.getElementById("price").value
+            my_pack = {...my_pack, month, price};
             document.getElementById("result").innerHTML = JSON.stringify(my_pack);
         }
     </script>
