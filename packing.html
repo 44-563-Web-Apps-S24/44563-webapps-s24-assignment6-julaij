@@ -17,35 +17,36 @@
 </head>
 
 <body>
+    <div class="container">
 
-    <h2>Julai Dangol Packs for a Trip</h2>
+        <h2>Julai Dangol Packs for a Trip</h2>
 
-    <form>
-        <label for="light">Pack Light </label>
-        <input type="checkbox" value="True" id="light" name="light"> <br>
+        <form>
+            <label for="light">Pack Light </label>
+            <input type="checkbox" value="True" id="light" name="light"> <br>
 
-        <label for="carry_on"> Carry On</label>
-        <input type="checkbox" value="True" id="carry_on" name="carry_on"> <br>
+            <label for="carry_on"> Carry On</label>
+            <input type="checkbox" value="True" id="carry_on" name="carry_on"> <br>
 
-        <label for="tablet"> Tablet</label>
-        <input type="checkbox" value="False" id="tablet" name="tablet"> <br>
+            <label for="tablet"> Tablet</label>
+            <input type="checkbox" value="False" id="tablet" name="tablet"> <br>
 
-        <input type="button" onclick="selectPack()" value="Select for packing">
-    </form>
+            <input type="button" class="btn btn-info" onclick="selectPack()" value="Select for packing">
+        </form>
 
-    <p id="result">This text will be replaced </p>
+        <p id="result">This text will be replaced </p>
 
 
-    <form>
-        <label for="month">Enter travel month </label>
-        <input type="text" value="May" id="month" name="month"> <br>
+        <form>
+            <label for="month">Enter travel month </label>
+            <input type="text" value="May" id="month" name="month"> <br>
 
-        <label for="price"> Enter price </label>
-        <input type="text" id="price" name="price" autofocus> <br>
+            <label for="price"> Enter price </label>
+            <input type="text" id="price" name="price" autofocus> <br>
 
-        <input type="button" onclick="updatePack()" value="Update the pack">
-    </form>
-
+            <input type="button" class="btn btn-primary" onclick="updatePack()" value="Update the pack">
+        </form>
+    </div>
     <script>
 
         var my_pack = {};

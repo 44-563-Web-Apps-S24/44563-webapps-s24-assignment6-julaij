@@ -17,37 +17,38 @@
 </head>
 
 <body>
+    <div class="container">
 
-    <h2>Julai Dangol Discount Calculations</h2>
+        <h2>Julai Dangol Discount Calculations</h2>
 
-    <form>
-        <label for="price">Enter price per</label>
-        <input type="number" value=10 id="price" name="price" autofocus> <br>
+        <form>
+            <label for="price">Enter price per</label>
+            <input type="number" value=10 id="price" name="price" autofocus> <br>
 
-        <label for="number_items"> Enter the number of items </label>
-        <input type="text" value=9 id="number_items" name="number_items"> <br>
+            <label for="number_items"> Enter the number of items </label>
+            <input type="text" value=9 id="number_items" name="number_items"> <br>
 
-        <label for="discount_amt"> Enter the discount percent </label>
-        <input type="text" value=5 id="discount_amt" name="discount_amt"> <br>
+            <label for="discount_amt"> Enter the discount percent </label>
+            <input type="text" value=5 id="discount_amt" name="discount_amt"> <br>
 
-        <input type="button" onclick="discount()" value="Show total">
-    </form>
-    <p><strong id="result">Totals are: </strong></p>
+            <input type="button" class="btn btn-secondary" onclick="discount()" value="Show total">
+        </form>
+        <p><strong id="result">Totals are: </strong></p>
 
 
-    <form>
-        <input type="radio" id="sum" name="operation" value="sum" checked onclick="chooseOp()">
-        <label for="sum">sum</label><br>
+        <form>
+            <input type="radio" id="sum" name="operation" value="sum" checked onclick="chooseOp()">
+            <label for="sum">sum</label><br>
 
-        <input type="radio" id="multiply" name="operation" value="multiply" onclick="chooseOp()">
-        <label for="multiply">mult</label><br>
+            <input type="radio" id="multiply" name="operation" value="multiply" onclick="chooseOp()">
+            <label for="multiply">mult</label><br>
 
-        <input type="radio" id="exponent" name="operation" value="exponent" onclick="chooseOp()">
-        <label for="exponent">exp</label><br>
+            <input type="radio" id="exponent" name="operation" value="exponent" onclick="chooseOp()">
+            <label for="exponent">exp</label><br>
 
-        <p id="operation_result"></p>
-    </form>
-
+            <p id="operation_result"></p>
+        </form>
+    </div>
 
     <script>
         var price;

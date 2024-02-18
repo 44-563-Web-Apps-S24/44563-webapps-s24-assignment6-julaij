@@ -17,30 +17,31 @@
 </head>
 
 <body>
-    <h1>Animal game by Julai Dangol</h1>
-
-    <h2>Getting input</h2>
-
-    <form>
-        <label for="form1_animal">The hidden animal type </label>
-        <input type="password" value="Chicken" id="form1_animal" name="form1_animal" min=10 max=50 step=2 value=30> <br>
-
-        <label for="form1_guess"> Guess the animal</label>
-        <input type="text" id="form1_guess" name="form1_guess" autofocus> <br>
-
-        <input type="button" id="checkButton" onclick="checkAnimal()" value="Check the guess">
-    </form>
-
     <div class="container">
-        <div id="correctResult" class="alert alert-success" role="alert">This text will be replaced </div>
-        <div id="wrongResult" class="alert alert-danger" role="alert">This text will be replaced </div>
+
+        <h1>Animal game by Julai Dangol</h1>
+
+        <h2>Getting input</h2>
+
+        <form>
+            <label for="form1_animal">The hidden animal type </label>
+            <input type="password" value="Chicken" id="form1_animal" name="form1_animal" min=10 max=50 step=2 value=30>
+            <br>
+
+            <label for="form1_guess"> Guess the animal</label>
+            <input type="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+            <input type="button" class="btn btn-primary" id="checkButton" onclick="checkAnimal()" value="Check the guess">
+        </form>
+
+        <div id="correctResult" class="col-md-6 alert alert-success" role="alert">This text will be replaced </div>
+        <div id="wrongResult" class="col-md-6 alert alert-danger" role="alert">This text will be replaced </div>
+
+        <div class="container">
+            <img src="./aj.JPG" id="image" alt="Apple Juice" width="150" height="150" onclick="selectImage()">
+        </div>
+
     </div>
-
-    <div class="container">
-        <img src="./aj.JPG" id="image" alt="Apple Juice" width="150" height="150" onclick="selectImage()">
-    </div>
-
-
     <script>
         var wrong = 0;
         var correct = 0;
