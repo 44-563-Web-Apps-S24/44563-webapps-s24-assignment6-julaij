@@ -3,6 +3,14 @@
 
 <head>
     <title>Animal Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -17,13 +25,15 @@
         <label for="form1_guess"> Guess the animal</label>
         <input type="text" id="form1_guess" name="form1_guess" autofocus> <br>
 
-        <input type="button" onclick="checkAnimal()" value="Check the guess">
+        <input type="button" id="checkButton" onclick="checkAnimal()" value="Check the guess">
     </form>
 
+    <div class="container">
+        <div id="correctResult" class="alert alert-success" role="alert">This text will be replaced </div>
+        <div id="wrongResult" class="alert alert-danger" role="alert">This text will be replaced </div>
+    </div>
 
-    <p id="correctResult">This text will be replaced </p>
-    <p id="wrongResult">This text will be replaced </p>
-    
+
     <div class="container">
         <img src="./aj.JPG" id="image" alt="Apple Juice" width="150" height="150" onclick="selectImage()">
     </div>
@@ -70,8 +80,16 @@
                 correctResult.innerHTML = `Correct count: ${correct}`
             } else {
                 wrong += 1
-                alert('Grrrr')
-                wrongResult.innerHTML = `Wrong Count: ${wrong}`
+                if (wrong > correct) {
+                    alert("Sorry, too many wrong guesses.");
+                    document.getElementById("checkButton").onclick = function () {
+                        alert("Sorry, too many wrong guesses.")
+                    };
+                }
+                else {
+                    alert('Grrrr')
+                    wrongResult.innerHTML = `Wrong Count: ${wrong}`
+                }
             }
         }
     </script>
