@@ -1,54 +1,81 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Animal Game</title>
 </head>
- 
+
 <body>
-<h1>Animal game by Julai Dangol</h1>
+    <h1>Animal game by Julai Dangol</h1>
 
-<h2>Getting input</h2>
+    <h2>Getting input</h2>
 
-<form>
-    <label for="form1_animal">The hidden animal type </label>
-    <input type ="password"  value="Chicken" id="form1_animal" name="form1_animal" min=10 max=50 step=2 value=30> <br>
+    <form>
+        <label for="form1_animal">The hidden animal type </label>
+        <input type="password" value="Chicken" id="form1_animal" name="form1_animal" min=10 max=50 step=2 value=30> <br>
 
-    <label for="form1_guess"> Guess the animal</label>
-    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+        <label for="form1_guess"> Guess the animal</label>
+        <input type="text" id="form1_guess" name="form1_guess" autofocus> <br>
 
-    <input type="button" onclick="checkAnimal()" value="Check the guess">
-</form>
-
-
-<p id="correctResult">This text will be replaced </p>
-<p id="wrongResult">This text will be replaced </p>
+        <input type="button" onclick="checkAnimal()" value="Check the guess">
+    </form>
 
 
+    <p id="correctResult">This text will be replaced </p>
+    <p id="wrongResult">This text will be replaced </p>
 
-<script> 
-    var wrong = 0;
-    var correct = 0;
-    function checkAnimal (){
-    
-        console.log("Getting form values")
-        animal = document.getElementById("form1_animal").value
-        guess = document.getElementById("form1_guess").value
-        confirmed = confirm("Are these the values? "+animal+" and "+guess)
-        
-        correctResult = document.getElementById("correctResult")
-        wrongResult = document.getElementById("wrongResult")
+    <div class="container">
+        <img src="./aj.JPG" id="image" alt="Apple Juice" width="150" height="150" onclick="selectImage()">
+    </div>
 
-        if(animal.toUpperCase() == guess.toUpperCase()){
-            correct += 1
-            alert('Ruff ruff')
-            correctResult.innerHTML = `Correct count: ${correct}`
-        } else {
-            wrong += 1
-            alert('Grrrr')
-            wrongResult.innerHTML = `Wrong Count: ${wrong}`
+
+
+    <script>
+        var wrong = 0;
+        var correct = 0;
+        var useImage = 1
+
+        function selectImage() {
+            var img = document.getElementById("image")
+            switch (useImage) {
+                case 1:
+                    img.src = "./dew.JPG";
+                    useImage = 2;
+                    break;
+                case 2:
+                    img.src = "./ginza.JPG";
+                    useImage = 3;
+                    break;
+                default:
+                    useImage = 1;
+                    img.src = "./aj.JPG"
+
+            }
+
         }
-    }
-</script>
+
+        function checkAnimal() {
+
+            console.log("Getting form values")
+            animal = document.getElementById("form1_animal").value
+            guess = document.getElementById("form1_guess").value
+            confirmed = confirm("Are these the values? " + animal + " and " + guess)
+
+            correctResult = document.getElementById("correctResult")
+            wrongResult = document.getElementById("wrongResult")
+
+            if (animal.toUpperCase() == guess.toUpperCase()) {
+                correct += 1
+                alert('Ruff ruff')
+                correctResult.innerHTML = `Correct count: ${correct}`
+            } else {
+                wrong += 1
+                alert('Grrrr')
+                wrongResult.innerHTML = `Wrong Count: ${wrong}`
+            }
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
