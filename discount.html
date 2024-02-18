@@ -21,33 +21,73 @@
 
         <input type="button" onclick="discount()" value="Show total">
     </form>
+    <p><strong id="result">Totals are: </strong></p>
 
 
-    <p id="result"></p>
+    <form>
+        <input type="radio" id="sum" name="operation" value="sum" checked onclick="chooseOp()">
+        <label for="sum">sum</label><br>
+
+        <input type="radio" id="multiply" name="operation" value="multiply" onclick="chooseOp()">
+        <label for="multiply">mult</label><br>
+
+        <input type="radio" id="exponent" name="operation" value="exponent" onclick="chooseOp()">
+        <label for="exponent">exp</label><br>
+
+        <p id="operation_result"></p>
+    </form>
+
 
     <script>
         var price;
         var number;
         var discount_percent;
+        var operation_result = 0;
+        var operation_type = '';
 
-
-        function discount() {
+        function getInputs() {
             price = document.getElementById('price').value;
             number = document.getElementById('number_items').value;
             discount_percent = document.getElementById('discount_amt').value;
+        }
+        function discount() {
+            getInputs()
 
             var myOutput = '';
-            myOutput += 'Totals are: '
-            for (i=0; i<5; i++){
-                calculated_price = (price*number) - ((discount_percent * price * number)/100);
+            for (i = 0; i < 5; i++) {
+                calculated_price = (price * number) - ((discount_percent * price * number) / 100);
                 myOutput += String(discount_percent) + "% is " + String(calculated_price.toFixed(1)) + "; "
                 discount_percent++
             }
 
-            document.getElementById("result").innerHTML = `<strong>${myOutput}</strong>`
-            
-
+            document.getElementById("result").innerHTML = "Totals are: " + myOutput;
         }
+
+        function chooseOp() {
+
+            getInputs()
+
+            var sum = document.getElementById('sum').checked;
+            var mult = document.getElementById('multiply').checked;
+            var exp = document.getElementById('exponent').checked;
+
+            var operation_result;
+            var operation_type;
+
+            if (sum) {
+                operation_result = Number(price) + Number(discount_percent);
+                operation_type = "Addition";
+            } else if (mult) {
+                operation_result = price * discount_percent;
+                operation_type = "Product";
+            } else if (exp) {
+                operation_result = Math.pow(price, discount_percent);
+                operation_type = "Exponent";
+            }
+
+            document.getElementById('operation_result').innerHTML = `${operation_type} of ${price} and ${discount_percent} is ${operation_result}`;
+        }
+
     </script>
 
 </body>
