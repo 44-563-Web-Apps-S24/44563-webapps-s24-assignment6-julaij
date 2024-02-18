@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Discount Calculations</title>
+</head>
+
+<body>
+
+    <h2>Julai Dangol Discount Calculations</h2>
+
+    <form>
+        <label for="price">Enter price per</label>
+        <input type="number" value=10 id="price" name="price" autofocus> <br>
+
+        <label for="number_items"> Enter the number of items </label>
+        <input type="text" value=9 id="number_items" name="number_items"> <br>
+
+        <label for="discount_amt"> Enter the discount percent </label>
+        <input type="text" value=5 id="discount_amt" name="discount_amt"> <br>
+
+        <input type="button" onclick="discount()" value="Show total">
+    </form>
+
+
+    <p id="result"></p>
+
+    <script>
+        var price;
+        var number;
+        var discount_percent;
+
+
+        function discount() {
+            price = document.getElementById('price').value;
+            number = document.getElementById('number_items').value;
+            discount_percent = document.getElementById('discount_amt').value;
+
+            var myOutput = '';
+            myOutput += 'Totals are: '
+            for (i=0; i<5; i++){
+                calculated_price = (price*number) - ((discount_percent * price * number)/100);
+                myOutput += String(discount_percent) + "% is " + String(calculated_price.toFixed(1)) + "; "
+                discount_percent++
+            }
+
+            document.getElementById("result").innerHTML = `<strong>${myOutput}</strong>`
+            
+
+        }
+    </script>
+
+</body>
+
+</html>
