@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
- 
+
+<head>
+    <title>Packing for a Trip</title>
+</head>
+
 <body>
 
-<h2>Getting input</h2>
+    <h2>Julai Dangol Packs for a Trip</h2>
 
-<form>
-    <label for="form1_age">The hidden animal type </label>
-    <input type ="password"  value="Chicken" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <form>
+        <label for="light">Pack Light </label>
+        <input type="checkbox" value="True" id="light" name="light"> <br>
 
-    <label for="form1_nick"> Guess the animal</label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+        <label for="carry_on"> Carry On</label>
+        <input type="checkbox" value="True" id="carry_on" name="carry_on"> <br>
 
-    <input type="button" onclick="resolveForm()" value="Check the guess">
-</form>
+        <label for="tablet"> Tablet</label>
+        <input type="checkbox" value="False" id="tablet" name="tablet"> <br>
+
+        <input type="button" onclick="selectPack()" value="Select for packing">
+    </form>
 
 
-<p id="result">This text will be replaced </p>
+    <p id="result">This text will be replaced </p>
 
-<script> 
+    <script>
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-</script>
+        var my_pack = {};
+
+        function selectPack() {
+            console.log('button clicked')
+            my_pack = {};
+            my_pack.light = document.getElementById("light").checked;
+            my_pack.carry_on = document.getElementById("carry_on").checked;
+            my_pack.tablet = document.getElementById("tablet").checked;
+            document.getElementById("result").innerHTML = JSON.stringify(my_pack);
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
